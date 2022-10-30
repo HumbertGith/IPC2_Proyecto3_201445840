@@ -22,11 +22,9 @@ class Categoria:
     nombre:string
     descripcion:string
     cargaTrabajo:string
-    tipo:string
-    valor_hora:float
     listaconfi:list
 
-    def __init__(self,id, nombre,descripcion, cargatrabajo, tipo, valor_hora):
+    def __init__(self,id, nombre,descripcion, cargatrabajo):
         self.iden = id
         self.nombre = nombre
         self.descripcion = descripcion
