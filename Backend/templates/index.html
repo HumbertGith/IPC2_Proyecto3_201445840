@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!--NAV BAR--->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/recurso">Crear recurso</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/categoria">Crear categoria</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+</head>
+<body>
+    <h2>hola mundo</h2>
+    <div class="login">
+        <h3>Envio de mensage de configuracion</h3>
+        <form action="/Configuracion" method="post" enctype="multipart/form-data">
+            <input type="file" id="confi" name="confi" accept=".xml">
+            <br>
+            <h3>Envio de mensage de consumo</h3>
+            <br>
+            <input type="file" id="consumo" name="consumo" accept=".xml">
+            <input type="submit">
+        </form>
+        <br>
+        <br>
+        <b>{{respuesta1}}</b>
+        <br>
+        <b>{{respuesta2}}</b>
+    </div>
+
+</body>
+</html>
