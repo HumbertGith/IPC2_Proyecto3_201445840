@@ -1,7 +1,7 @@
 
 from re import X
 import xml.etree.ElementTree as ET
-
+import re
 from clases import *
 class Metodos:
     def __init__(self) -> None:
@@ -177,6 +177,7 @@ class Metodos:
                     print(False)
     def existe_o_no_en_la_lista(lista:list, clase):
         encontrado=False
+        
         for x in lista:
             if x.iden==clase.iden:
                 encontrado=True
@@ -185,4 +186,24 @@ class Metodos:
             return True
         else:
             return False
+    def existe_en_lista(lista:list, clase):
+        encontrado=False
+        if not lista:
+            lista.append(clase)
+        else:
+            for x in lista:
+                if x.iden==clase.iden:
+                    encontrado=True
+                    break
+            if encontrado==False:
+                 lista.append(clase)
+    def obtener_fecha(fecha):
+        patron1=r'(\d{2})/(\d{2})/(\d{4}) *(\d{2})*:*(\d{2})*'
+        patron_nuevo2= re.findall(patron1,fecha)
+        return patron_nuevo2
+           
+               
+                
+            
+
             

@@ -38,6 +38,7 @@ def configuracion():
 def Consultar_Datos():
     for x in lista_recursos:
         print(x.iden)
+        print(x.nombre)
     print("*************************")
     for x in lista_categoria:
         print(x.iden)
@@ -54,7 +55,7 @@ def Consultar_Datos():
     print("********************")
     for x in lista_consumo:
         print(x.tiempo)
-    return "<p>Todo bien!</p>"  
+    return render_template("consulta.html", variable= "algo \ndespues")  
 @app.route("/recurso")
 def recurso():
     return render_template("crearrecurso.html")
@@ -67,7 +68,7 @@ def crear_recurso():
     tipo=request.form['tipo']
     valorhora=float(request.form['hora'])
     recurso= Recurso(iden,nombre,abrebiatura,metrica,tipo,valorhora)
-    lista_recursos.append(recurso)
+    metodo.existe_en_lista(lista_recursos,recurso)
     return render_template('crearrecurso.html') 
 categoria=Categoria("","","","")
 @app.route("/categoria")
@@ -115,7 +116,46 @@ def crear_configuracion():
 
 
     except:
-        print("HUbo un error el ingreso de categoria")   
+        print("HUbo un error el ingreso de categoria")  
+clientes=Cliente("","","","","","") 
+@app.route("/cliente")
+def cliente():
+    return render_template("crearcliente.html")
+@app.route("/cliente/Crear_cliente",methods=['POST'])
 
+def crear_cliente():
+    try:
+        global clientes
+        iden=request.form['iden']
+        nombre=request.form['nombre']
+        usuario=request.form['us']
+        clave=request.form['clave']
+        direc=request.form['direc']
+        correo=request.form['correo']
+        cliente1=Cliente(iden,nombre,usuario,clave,direc,correo)
+        clientes=cliente1
+        lista_clientes.append(clientes)
+        return "<p>cliente agregado con exito!</p>"
+    except:
+        print("Error al crear el cliente")
+    
+@app.route("/cliente/Crear_instancia",methods=['POST'])
+
+def crear_instancia():
+        iden=request.form['iden']
+        idconfi=request.form['idconfi']
+        nombre=request.form['nombre']
+        fechainicio=request.form['fechainicio']
+        estado=request.form['estado']
+        fechafinal=request.form['fechafinal']
+        instancia=Instrancia(iden,idconfi,nombre,fechainicio,estado,fechafinal)
+        clientes.listainstancia.append(instancia)
+        return "<p>instancia agregada con exito!</p>"
+fecha=metodo.obtener_fecha("10/06/2022 89:90 guatemala")
+print(fecha)
+for x in fecha:
+    print(x)
+    for j in x :
+        print(j)
 if __name__ == '__main__':
     app.run(debug=True)
