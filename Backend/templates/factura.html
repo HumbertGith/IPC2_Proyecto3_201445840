@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Crear factura</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <!--NAV BAR--->
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Inicio</a>
@@ -35,49 +36,29 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/reporte">reportes</a>
               </li>
+              
             </ul>
           </div>
         </div>
     </nav>
 </head>
 <body>
-    <h2>Configuracion del sistema</h2>
-    <br>
+    <h2>Generar factura</h2>
     <div class="login">
-        <h3>Envio de mensage de configuracion</h3>
-        <br>
-        <form action="/Configuracion" method="post" enctype="multipart/form-data">
-            <input type="file" id="confi" name="confi" accept=".xml">
+        <form action="/factura/Crear_factura" method="post" enctype="multipart/form-data">
+            <input type="text"  name="id" placeholder="Nit cliente" required="required">
             <br>
-            <h3>Envio de mensage de consumo</h3>
-            <br>
-            <input type="file" id="consumo" name="consumo" accept=".xml">
-            <input type="submit">
-            <br>
-        </form>
-        <h3>Guardar datos del sistema</h3>
-        <form action="/Guardar" method="post" enctype="multipart/form-data">
-          <button type="submit" class="btn btn-primary btn-block btn-large">Guardar datos</button>
-          <br>
-          {{variable}}
-      </form>
-        <h3>Datos de facturacion</h3>
-        <form action="/deuda" method="post" enctype="multipart/form-data">
-          <button type="submit" class="btn btn-primary btn-block btn-large">Datos factura</button>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Generar factura</button>
         </form>
         <br>
-        {{variable1}}
         <br>
-        <b>{{respuesta1}}</b>
+        <b>{{variable}}</b>
         <br>
-        <b>{{respuesta2}}</b>
-        <form action="/ayuda" method="post" enctype="multipart/form-data">
-          <button type="submit" class="btn btn-primary btn-block btn-large">Datos estudiante</button>
-        </form>
+        <h2>Consultar Factura</h2>
         <br>
-        <textarea name="caja" id="caja" cols="70" rows="4" readonly >{{datos}}</textarea>
+        <textarea name="caja" id="caja" cols="70" rows="20" readonly >{{variable1}}</textarea>
         
     </div>
-
+    
 </body>
 </html>

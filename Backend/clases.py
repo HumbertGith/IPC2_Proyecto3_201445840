@@ -55,7 +55,9 @@ class Cliente:
     clave:string
     direccion:string
     correo:string
+    deuda:float
     listainstancia:list
+    listadeuda:list
 
     def __init__(self,id, nombre,usuario, clave, direccion, correo):
         self.iden = id
@@ -64,7 +66,9 @@ class Cliente:
         self.clave=clave
         self.direccion=direccion
         self.correo=correo
-        self.listainstancia=[]      
+        self.deuda=0.0
+        self.listainstancia=[]   
+        self.listadeuda=[]   
 class Instrancia:
     iden:string 
     idconfi:string
@@ -91,4 +95,14 @@ class Consumo:
         self.ideninstancia = ideninstancia
         self.tiempo = tiempo
         self.fechahora=fechahora
-       
+class Datos_factura:
+    deudaconsumo:float
+    descripcion:string
+    categoria:string
+    idconfi:string
+    
+    def __init__(self,deuda, descripcion, categoria, confi):
+        self.deudaconsumo=deuda
+        self.descripcion=descripcion
+        self.categoria=categoria    
+        self.idconfi=confi  
